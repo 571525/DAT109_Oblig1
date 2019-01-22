@@ -8,12 +8,12 @@ public class PoengSum {
 
     /**
      * Metode for å berekne poengsum
+     *
      * @param rundenummer rundenummer å berekne
-     * @param resultater resultater fra terninger
+     * @param resultater  resultater fra terninger
      * @return poengsummen gitt runden
      */
     public static int bereknPoengsum(int rundenummer, String[] resultater) {
-
         switch (rundenummer) {
             case 1:
                 return poengRunde1(resultater);
@@ -40,7 +40,6 @@ public class PoengSum {
             case 12:
                 return poengRunde12(resultater);
         }
-
         return 0;
     }
 
