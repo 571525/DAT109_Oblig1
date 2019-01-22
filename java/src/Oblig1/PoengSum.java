@@ -37,38 +37,90 @@ public class PoengSum {
         return 0;
     }
 
+    /**
+     * Berekn poengsum for antall løver
+     *
+     * @param resultater resultater fått fra tur klassen
+     * @return antall løver fra resultatene
+     */
     private static int poengRunde1(String[] resultater) {
         return (int) Arrays.stream(resultater).filter(e -> e.equals("Løve")).count();
     }
 
+    /**
+     * Berekn poengsum for antall Slanger
+     *
+     * @param resultater resultater fått fra tur klassen
+     * @return antall slanger fra resultatene
+     */
     private static int poengRunde2(String[] resultater) {
         return (int) Arrays.stream(resultater).filter(e -> e.equals("Slange")).count();
     }
 
+    /**
+     * Berekn poengsum for antall panda
+     *
+     * @param resultater resultater fått fra tur klassen
+     * @return antall panda fra resultatene
+     */
     private static int poengRunde3(String[] resultater) {
         return (int) Arrays.stream(resultater).filter(e -> e.equals("Panda")).count();
     }
 
+    /**
+     * Berekn poengsum for antall gris
+     *
+     * @param resultater resultater fått fra tur klassen
+     * @return antall gris fra resultatene
+     */
     private static int poengRunde4(String[] resultater) {
         return (int) Arrays.stream(resultater).filter(e -> e.equals("Gris")).count();
     }
 
+    /**
+     * Berekn poengsum for antall elefant
+     *
+     * @param resultater resultater fått fra tur klassen
+     * @return antall elefant fra resultatene
+     */
     private static int poengRunde5(String[] resultater) {
         return (int) Arrays.stream(resultater).filter(e -> e.equals("Elefant")).count();
     }
 
+    /**
+     * Berekn poengsum for antall hval
+     *
+     * @param resultater resultater fått fra tur klassen
+     * @return antall hval fra resultatene
+     */
     private static int poengRunde6(String[] resultater) {
         return (int) Arrays.stream(resultater).filter(e -> e.equals("Hval")).count();
     }
 
+    /**
+     * Beregn poengsum om det finst 3 like
+     *
+     * @param resultater resultater fra tur klassen
+     * @return om du
+     */
     private static int poengRunde7(String[] resultater) {
-        for (String s : resultater){
+        Arrays.sort(resultater);
+        int poeng = 0;
+        for (int i = 0; i < resultater.length - 1; i++)
+            if (resultater[i].equals(resultater[i + 1])) poeng++;
 
-        }
+        if (poeng >= 2) return 3;
         return 0;
     }
 
     private static int poengRunde8(String[] resultater) {
+        Arrays.sort(resultater);
+        int poeng = 0;
+        for (int i = 0; i < resultater.length - 1; i++) {
+            if (resultater[i].equals(resultater[i + 1])) poeng++;
+        }
+
+        if (poeng >= 3) return 4;
         return 0;
     }
 

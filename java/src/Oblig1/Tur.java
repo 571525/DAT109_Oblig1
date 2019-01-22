@@ -16,9 +16,10 @@ public class Tur {
     public int spillTur() {
         int kast = 0;
         while (kast < max_kast) {
-            for (int i = 0; i < terninger.length; i++) {
+
+            for (int i = 0; i < terninger.length; i++)
                 if (!terninger[i].isHidden()) resultater[i] = terninger[i].trillTerning();
-            }
+
             kast++;
         }
         return PoengSum.bereknPoengsum(runderNr, resultater);
