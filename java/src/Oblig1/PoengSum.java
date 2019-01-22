@@ -1,10 +1,17 @@
 package Oblig1;
 
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class PoengSum {
 
+    /**
+     * Metode for å berekne poengsum
+     * @param rundenummer rundenummer å berekne
+     * @param resultater resultater fra terninger
+     * @return poengsummen gitt runden
+     */
     public static int bereknPoengsum(int rundenummer, String[] resultater) {
 
         switch (rundenummer) {
@@ -101,7 +108,7 @@ public class PoengSum {
      * Beregn poengsum om det finst 3 like
      *
      * @param resultater resultater fra tur klassen
-     * @return om du
+     * @return 3 om du har 3 like
      */
     private static int poengRunde7(String[] resultater) {
         Arrays.sort(resultater);
@@ -110,9 +117,15 @@ public class PoengSum {
             if (resultater[i].equals(resultater[i + 1])) poeng++;
 
         if (poeng >= 2) return 3;
-        return 0;
+        else return 0;
     }
 
+    /**
+     * Beregn poengsum om det finst 4 like
+     *
+     * @param resultater resultater fra tur klassen
+     * @return 4 om du har 4 like
+     */
     private static int poengRunde8(String[] resultater) {
         Arrays.sort(resultater);
         int poeng = 0;
@@ -121,23 +134,70 @@ public class PoengSum {
         }
 
         if (poeng >= 3) return 4;
-        return 0;
+        else return 0;
     }
 
+    /**
+     * Beregn poengsum om du har 2 par
+     *
+     * @param resultater resultater fra tur klassen
+     * @return 4 viss 2 par ellers 0
+     */
     private static int poengRunde9(String[] resultater) {
-        return 0;
+        //Lag et hashmap gruppert med antall "occurences"
+        Map<String, Long> map = Arrays.stream(resultater)
+                .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+
+        //Tell opp antall av map entries med mer en 2 i value
+        int count = (int) map.entrySet().stream().filter(e -> e.getValue() >= 2).count();
+
+        //Har du 2, har du 2 par.
+        if (count == 2) return 4;
+        else return 0;
     }
 
+    /**
+     * Beregn poengsum om du har 3 like og 2 like
+     *
+     * @param resultater resultater fra tur klassen
+     * @return 5 om 3 like og 2 like, 0 viss ikke
+     */
     private static int poengRunde10(String[] resultater) {
-        return 0;
+        //Lag et hashmap gruppert med antall "occurences"
+        Map<String, Long> map = Arrays.stream(resultater)
+                .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+
+        //Sjekk om vi har har en med 2 og en med 3 i value.
+        int moreThan2 = (int) map.entrySet().stream().filter(e -> e.getValue() == 2).count();
+        int moreThan3 = (int) map.entrySet().stream().filter(e -> e.getValue() == 3).count();
+
+        //Er begge sanne betyr det at vi har et hus
+        if (moreThan3 == 1 && moreThan2 == 1) return 5;
+        else return 0;
     }
 
+    /**
+     * Beregn poengsum om du har 5 ulike
+     *
+     * @param resultater resultater fra tur klassen
+     * @return 5 om alle er ulike
+     */
     private static int poengRunde11(String[] resultater) {
-        return 0;
+        int count = (int) Arrays.stream(resultater).distinct().count();
+        if (count == 5) return 5;
+        else return 0;
     }
 
+    /**
+     * Bergen poengsum om du har alle like
+     *
+     * @param resultater resultater fra tur klassen
+     * @return 10 om du har alle forskjellige og 0 viss ikke
+     */
     private static int poengRunde12(String[] resultater) {
-        return 0;
+        int count = (int) Arrays.stream(resultater).distinct().count();
+        if (count == 1) return 10;
+        else return 0;
     }
 
 
