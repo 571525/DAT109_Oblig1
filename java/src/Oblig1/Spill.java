@@ -104,4 +104,26 @@ public class Spill {
         }
         return spillere[vinnerIndex];
     }
+
+    /**
+     * Metode for å skrive ut alle spillerene som er valgt
+     */
+    public void skrivUtSpillere() {
+        System.out.println("\n" + "Her er spillerne i spillet:" + "\n");
+        for (Spiller s : spillere) {
+            System.out.println(s.toString());
+        }
+        System.out.println();
+    }
+
+    /**
+     * Metode for å skrive ut alle regler
+     */
+    public void skrivUtRegler() {
+        System.out.println(
+                "Spillet består av 12 runder. Hver runde har hver spiller 3 terningkast til å få så mange poeng som muligt."
+                        + "\n" + "For å gå videre i spillet eller trille terningerne tryk 'Enter'."
+                        + "\n" + "For å velge terninger og gjemme dem skriv terningnummer, er der flere så adskill med ','."
+                        + "\n\n" + "LYKKE TIL!");
+    }
 }

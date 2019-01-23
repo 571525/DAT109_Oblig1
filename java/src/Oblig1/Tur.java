@@ -52,7 +52,7 @@ public class Tur {
             //Har man markert alle terninger går man utav loopen, trenger ikke flere kast
             if (allHidden()) break;
             //** UNCOMMENT HER FOR Å GJØR ALT MANUELT
-            //velgTerninger(terninger);
+            velgTerninger(terninger);
             kast++;
         }
 
