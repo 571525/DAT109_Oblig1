@@ -76,7 +76,8 @@ public class Tur {
             //Validerer inputen og endrer en terning
             if (input.length() != 0 && !input.contains(",")) {
                 int value = (Integer.parseInt(input) - 1);
-                terninger[value].setHidden(true);
+                boolean terningValue = !terninger[value].isHidden();
+                terninger[value].setHidden(terningValue);
             }
 
             //Validerer og endrer alle terningene uansett hvor mange som skal lagres
@@ -84,7 +85,8 @@ public class Tur {
                 String splitted[] = input.split(",");
                 for (String s : splitted) {
                     int value = (Integer.parseInt(s) - 1);
-                    terninger[value].setHidden(true);
+                    boolean terningValue = !terninger[value].isHidden();
+                    terninger[value].setHidden(terningValue);
                 }
             }
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {

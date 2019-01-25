@@ -123,7 +123,8 @@ public class Spill {
         System.out.println(
                 "Spillet består av 12 runder. Hver runde har hver spiller 3 terningkast til å få så mange poeng som muligt."
                         + "\n" + "For å gå videre i spillet eller trille terningerne tryk 'Enter'."
-                        + "\n" + "For å velge terninger og gjemme dem skriv terningnummer, er der flere så adskill med ','."
+                        + "\n" + "For å velge terninger og gjemme dem skriv terningnummer, er der flere så adskill med ','." +
+                        "\n" + "Om du vil trille gjemte terninger, skriv inn nummeret på terningen igjen!"
                         + "\n\n" + "LYKKE TIL!");
     }
 }
